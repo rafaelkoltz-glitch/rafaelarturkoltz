@@ -1,98 +1,164 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portalsera que tem nome</title>
+    <title>Agricultura: Produção e Sustentabilidade</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        /* Configurações Globais */
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f4f7f4;
-            color: #333;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
+
+        body {
+            background-color: #0b130a; /* Verde escuro de segurança caso a imagem suma */
+            color: #f4f4f4;
+            line-height: 1.6;
+        }
+
+        /* Cabeçalho / Banner Principal */
         header {
-            background-color: #09b112;
-            color: white;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(11, 19, 10, 0.8)), 
+                        url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            height: 40vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
             padding: 20px;
-            text-align: center;
         }
-        nav {
-            background-color: #09450d;
-            padding: 10px;
-            text-align: center;
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #5cdb95;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
         }
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
+
+        header p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
         }
-        .container {
+
+        /* Container de Conteúdo com o Fundo Solicitado */
+        .main-container {
+            /* Fundo com imagem de natureza + camada preta transparente (rgba) combinando com verde escuro */
+            background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(11, 19, 10, 0.95)), 
+                        url('https://images.unsplash.com/photo-1530595467537-0b5996c41f2d?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            background-attachment: fixed; /* Efeito Parallax bonito ao rolar */
+            padding: 60px 20px;
+        }
+
+        .content-wrapper {
             max-width: 1000px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: white;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            border-radius: 8px;
+            margin: 0 auto;
         }
-        .grid {
+
+        /* Seções de Problemas e Soluções (As Caixas) */
+        .grid-section {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
             margin-top: 20px;
         }
-        .card {
-            background-color: #058fea;
-            padding: 15px;
-            border-left: 5px solid #4caf50;
-            border-radius: 4px;
+
+        @media (max-width: 768px) {
+            .grid-section {
+                grid-template-columns: 1fr; /* Fica em uma coluna só no celular */
+            }
         }
+
+        .card {
+            background: rgba(25, 36, 26, 0.6); /* Caixa verde escura semi-transparente */
+            border-left: 5px solid #ff4d4d; /* Vermelho/Laranja para os problemas */
+            padding: 30px;
+            border-radius: 8px;
+            backdrop-filter: blur(5px); /* Efeito de vidro fosco nas caixas */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .card.solucoes {
+            border-left: 5px solid #5cdb95; /* Verde claro para as soluções */
+        }
+
+        .card h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .card.problemas h2 { color: #ff6b6b; }
+        .card.solucoes h2 { color: #5cdb95; }
+
+        .card ul {
+            list-style-position: inside;
+            margin-top: 10px;
+        }
+
+        .card li {
+            margin-bottom: 12px;
+        }
+
+        .card strong {
+            color: #fff;
+        }
+
+        /* Rodapé */
         footer {
+            background-color: #050805;
             text-align: center;
             padding: 20px;
-            background-color: #2e7d32;
-            color: white;
-            margin-top: 40px;
+            font-size: 0.9rem;
+            color: #666;
+            border-top: 1px solid rgba(92, 219, 149, 0.1);
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Agro negócio: Produção e sustentabilidade</h1>
-        <p>Inovação e Tecnologia no Campo</p>
+        <h1>Agricultura Sustentável</h1>
+        <p>O desafio de alimentar o mundo em crescimento sem esgotar os recursos do nosso planeta.</p>
     </header>
 
-    <nav>
-        <a href="#tecnologia">Tecnologia</a>
-        <a href="#sustentabilidade">Sustentabilidade</a>
-        <a href="#contato">Contato</a>
-    </nav>
+    <div class="main-container">
+        <div class="content-wrapper">
+            
+            <div class="grid-section">
+                
+                <section class="card problemas">
+                    <h2>O Cenário Atual (Problemas)</h2>
+                    <p>A agricultura intensiva tradicional trouxe recordes de produção, mas gerou impactos severos ao meio ambiente que ameaçam o nosso próprio futuro:</p>
+                    <ul>
+                        <li><strong>Degradação do Solo:</strong> O uso excessivo de químicos e a monocultura esgotam os nutrientes da terra, tornando-a infértil a longo prazo.</li>
+                        <li><strong>Escassez e Poluição da Água:</strong> A irrigação ineficiente desperdiça bilhões de litros, enquanto agrotóxicos contaminam lençóis freáticos.</li>
+                        <li><strong>Desmatamento:</strong> A expansão desordenada da fronteira agrícola destrói biomas inteiros e acelera as mudanças climáticas.</li>
+                    </ul>
+                </section>
 
-    <div class="container">
-        <h2>O Futuro da Agricultura</h2>
-        <p>Este é um site de testes para demonstrar uma interface básica sobre o setor agrícola e suas inovações modernas.</p>
-        
-        <div class="grid">
-            <div class="card" id="tecnologia">
-                <h3>🚜 Agricultura de Precisão</h3>
-                <p>Uso de drones, sensores IoT e GPS para otimizar o plantio e a colheita.</p>
+                <section class="card solucoes">
+                    <h2>O Caminho do Meio (Soluções)</h2>
+                    <p>O equilíbrio entre produzir comida e preservar a natureza já é possível através de práticas inovadoras e técnicas milenares revividas:</p>
+                    <ul>
+                        <li><strong>Agricultura Regenerativa:</strong> Técnicas como o plantio direto e a rotação de culturas que recuperam a saúde e a vida orgânica do solo.</li>
+                        <li><strong>Tecnologia e Precisão:</strong> Uso de drones e sensores para aplicar água e nutrientes na quantidade exata, reduzindo o desperdício a quase zero.</li>
+                        <li><strong>Sistemas Agroflorestais:</strong> Consorciar a produção de alimentos com árvores nativas, mantendo a biodiversidade e protegendo o ecossistema.</li>
+                    </ul>
+                </section>
+
             </div>
-            <div class="card" id="sustentabilidade">
-                <h3>🌱 Sustentabilidade</h3>
-                <p>Práticas que preservam o solo, reduzem o desperdício de água e protegem a biodiversidade.</p>
-            </div>
-            <div class="card">
-                <h3>📊 Gestão de Safra</h3>
-                <p>Análise de dados climáticos para prever gargalos e aumentar a produtividade regional.</p>
-            </div>
+
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2026 Portal AgroTeste - Página de Demonstração</p>
+        <p>&copy; 2026 - Cultivando o Futuro. Criado para a comunidade do GitHub.</p>
     </footer>
 
 </body>
