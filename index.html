@@ -1,4 +1,4 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -14,7 +14,7 @@
         }
 
         body {
-            background-color: #0b130a; /* Verde escuro de segurança caso a imagem suma */
+            background-color: #0b130a; /* Verde escuro de segurança */
             color: #f4f4f4;
             line-height: 1.6;
         }
@@ -47,10 +47,9 @@
 
         /* Container de Conteúdo com o Fundo Solicitado */
         .main-container {
-            /* Fundo com imagem de natureza + camada preta transparente (rgba) combinando com verde escuro */
             background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(11, 19, 10, 0.95)), 
                         url('https://images.unsplash.com/photo-1530595467537-0b5996c41f2d?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
-            background-attachment: fixed; /* Efeito Parallax bonito ao rolar */
+            background-attachment: fixed; /* Efeito Parallax */
             padding: 60px 20px;
         }
 
@@ -59,12 +58,12 @@
             margin: 0 auto;
         }
 
-        /* Seções de Problemas e Soluções (As Caixas) */
+        /* Seções em Grid (As Caixas) */
         .grid-section {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 30px;
-            margin-top: 20px;
+            margin-bottom: 30px; /* Espaço entre as linhas de caixas */
         }
 
         @media (max-width: 768px) {
@@ -75,26 +74,28 @@
 
         .card {
             background: rgba(25, 36, 26, 0.6); /* Caixa verde escura semi-transparente */
-            border-left: 5px solid #ff4d4d; /* Vermelho/Laranja para os problemas */
             padding: 30px;
             border-radius: 8px;
-            backdrop-filter: blur(5px); /* Efeito de vidro fosco nas caixas */
+            backdrop-filter: blur(5px); /* Efeito de vidro fosco */
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
 
-        .card.solucoes {
-            border-left: 5px solid #5cdb95; /* Verde claro para as soluções */
-        }
+        /* Cores das Bordas Laterais de Cada Caixa */
+        .card.problemas { border-left: 5px solid #ff4d4d; }
+        .card.solucoes { border-left: 5px solid #5cdb95; }
+        .card.estatisticas { border-left: 5px solid #ffb703; }
+        .card.metas { border-left: 5px solid #219ebc; }
 
         .card h2 {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             margin-bottom: 15px;
-            display: flex;
-            align-items: center;
         }
 
+        /* Cores dos Títulos */
         .card.problemas h2 { color: #ff6b6b; }
         .card.solucoes h2 { color: #5cdb95; }
+        .card.estatisticas h2 { color: #ffb703; }
+        .card.metas h2 { color: #219ebc; }
 
         .card ul {
             list-style-position: inside;
@@ -109,13 +110,20 @@
             color: #fff;
         }
 
+        /* Estilo para destacar os números estatísticos */
+        .stat-number {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #ffb703;
+        }
+
         /* Rodapé */
         footer {
             background-color: #050805;
             text-align: center;
-            padding: 20px;
-            font-size: 0.9rem;
-            color: #666;
+            padding: 25px;
+            font-size: 1rem;
+            color: #aaa;
             border-top: 1px solid rgba(92, 219, 149, 0.1);
         }
     </style>
@@ -134,21 +142,45 @@
                 
                 <section class="card problemas">
                     <h2>O Cenário Atual (Problemas)</h2>
-                    <p>A agricultura intensiva tradicional trouxe recordes de produção, mas gerou impactos severos ao meio ambiente que ameaçam o nosso próprio futuro:</p>
+                    <p>A agricultura intensiva tradicional trouxe recordes de produção, mas gerou impactos severos ao meio ambiente:</p>
                     <ul>
-                        <li><strong>Degradação do Solo:</strong> O uso excessivo de químicos e a monocultura esgotam os nutrientes da terra, tornando-a infértil a longo prazo.</li>
-                        <li><strong>Escassez e Poluição da Água:</strong> A irrigação ineficiente desperdiça bilhões de litros, enquanto agrotóxicos contaminam lençóis freáticos.</li>
-                        <li><strong>Desmatamento:</strong> A expansão desordenada da fronteira agrícola destrói biomas inteiros e acelera as mudanças climáticas.</li>
+                        <li><strong>Degradação do Solo:</strong> O uso excessivo de químicos e a monocultura esgotam os nutrientes da terra.</li>
+                        <li><strong>Poluição da Água:</strong> Irrigação ineficiente desperdiça água, enquanto agrotóxicos contaminam lençóis freáticos.</li>
+                        <li><strong>Desmatamento:</strong> A expansão desordenada destrói biomas inteiros e acelera as mudanças climáticas.</li>
                     </ul>
                 </section>
 
                 <section class="card solucoes">
                     <h2>O Caminho do Meio (Soluções)</h2>
-                    <p>O equilíbrio entre produzir comida e preservar a natureza já é possível através de práticas inovadoras e técnicas milenares revividas:</p>
+                    <p>O equilíbrio entre produzir comida e preservar a natureza já é possível através de práticas inovadoras:</p>
                     <ul>
-                        <li><strong>Agricultura Regenerativa:</strong> Técnicas como o plantio direto e a rotação de culturas que recuperam a saúde e a vida orgânica do solo.</li>
-                        <li><strong>Tecnologia e Precisão:</strong> Uso de drones e sensores para aplicar água e nutrientes na quantidade exata, reduzindo o desperdício a quase zero.</li>
-                        <li><strong>Sistemas Agroflorestais:</strong> Consorciar a produção de alimentos com árvores nativas, mantendo a biodiversidade e protegendo o ecossistema.</li>
+                        <li><strong>Agricultura Regenerativa:</strong> Técnicas como o plantio direto e a rotação de culturas que recuperam o solo.</li>
+                        <li><strong>Tecnologia e Precisão:</strong> Uso de drones e sensores para aplicar água e insumos na quantidade exata.</li>
+                        <li><strong>Sistemas Agroflorestais:</strong> Consorciar a produção de alimentos com árvores nativas, mantendo a biodiversidade.</li>
+                    </ul>
+                </section>
+
+            </div>
+
+            <div class="grid-section">
+                
+                <section class="card estatisticas">
+                    <h2>Dados Estatísticos</h2>
+                    <p>Indicadores globais que reforçam a urgência de uma mudança de comportamento no campo:</p>
+                    <ul>
+                        <li><span class="stat-number">70%</span> de toda a água doce do planeta é consumida atualmente pela atividade agrícola.</li>
+                        <li><span class="stat-number">1/3</span> dos solos do mundo já estão severamente degradados devido a práticas inadequadas.</li>
+                        <li><span class="stat-number">24%</span> das emissões globais de gases de efeito estufa vêm da agricultura e do uso da terra.</li>
+                    </ul>
+                </section>
+
+                <section class="card metas">
+                    <h2>Metas Ambientais</h2>
+                    <p>Objetivos essenciais para alinhar a produtividade no campo com os Objetivos de Desenvolvimento Sustentável (ODS):</p>
+                    <ul>
+                        <li><strong>Desperdício Zero:</strong> Implementar sistemas de irrigação inteligente para reduzir o consumo de água em até 40%.</li>
+                        <li><strong>Carbono Neutro:</strong> Expandir as técnicas de plantio direto para sequestrar mais CO₂ da atmosfera diretamente no solo.</li>
+                        <li><strong>Preservação Consciente:</strong> Garantir que 100% das propriedades rurais respeitem as áreas de preservação permanente (APPs).</li>
                     </ul>
                 </section>
 
@@ -158,7 +190,7 @@
     </div>
 
     <footer>
-        <p>&copy; 2026 - Cultivando o Futuro. Criado para a comunidade do GitHub.</p>
+        <p>&copy; 2026 @concurso agrinho 2026. Feito por Rafael Artur Koltz.</p>
     </footer>
 
 </body>
